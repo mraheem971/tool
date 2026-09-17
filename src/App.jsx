@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ï»¿import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import ImageCompressor from './components/ImageCompressor/ImageCompressor';
 import VideoCompressor from './components/VideoCompressor/VideoCompressor';
@@ -6,7 +6,7 @@ import VideoClipper from './components/VideoClipper/VideoClipper';
 import { Sparkles, Shield, Zap, Scissors, Image as ImageIcon, Video, CheckCircle } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('clipper'); // Default to Video Clipper as requested
+  const [activeTab, setActiveTab] = useState('clipper');
 
   return (
     <div className="min-h-screen bg-[#080C14] text-slate-100 flex flex-col selection:bg-cyan-500/30 selection:text-cyan-200">
@@ -28,16 +28,17 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="font-extrabold text-slate-200">MediaForge PRO</span>
-            <span>• High Performance Media Compression & Video Auto-Clipper</span>
+            <span className="text-slate-600">â€¢</span>
+            <span>High Performance Media Compression &amp; Video Auto-Clipper</span>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-400">
-            <span className="flex items-center gap-1 text-emerald-400">
+          <div className="flex items-center gap-3 text-slate-400">
+            <span className="flex items-center gap-1.5 text-emerald-400">
               <Shield className="w-3.5 h-3.5" /> 100% Client-Side Safe
             </span>
-            <span>•</span>
+            <span className="text-slate-600">â€¢</span>
             <span>Min 30s Clip Duration</span>
-            <span>•</span>
+            <span className="text-slate-600">â€¢</span>
             <span>5s Dynamic Intro Bumpers</span>
           </div>
         </div>

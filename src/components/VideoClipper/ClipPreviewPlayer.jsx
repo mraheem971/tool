@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+﻿import React, { useRef, useEffect, useState } from 'react';
 import { Play, Pause, RotateCcw, Sparkles, Clock, Volume2, VolumeX, Eye } from 'lucide-react';
 import { drawIntroOverlay } from '../../utils/canvasOverlay';
 import { formatDuration, formatDurationDetailed } from '../../utils/formatters';
@@ -13,7 +13,6 @@ export default function ClipPreviewPlayer({ videoUrl, activeClip, overlayOptions
   const clipDuration = activeClip ? activeClip.endTime - activeClip.startTime : 30;
   const introDuration = overlayOptions?.introDuration || 5.0;
 
-  // Render loop for canvas overlay
   useEffect(() => {
     let animId;
     const canvas = canvasRef.current;
@@ -24,20 +23,16 @@ export default function ClipPreviewPlayer({ videoUrl, activeClip, overlayOptions
 
     const render = () => {
       if (video.readyState >= 2) {
-        // Set canvas resolution to match video
         if (canvas.width !== video.videoWidth && video.videoWidth > 0) {
           canvas.width = video.videoWidth;
           canvas.height = video.videoHeight;
         }
 
-        // Draw video frame
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-        // Calculate time relative to clip start
         const timeInClip = Math.max(0, video.currentTime - activeClip.startTime);
         setCurrentTimeInClip(timeInClip);
 
-        // Draw 5-second dynamic Part # and Title overlay
         drawIntroOverlay(ctx, canvas.width, canvas.height, {
           timeInClip,
           duration: introDuration,
@@ -54,7 +49,6 @@ export default function ClipPreviewPlayer({ videoUrl, activeClip, overlayOptions
           showSubtitle: overlayOptions.showSubtitle !== false
         });
 
-        // Loop clip or stop at clip end
         if (video.currentTime >= activeClip.endTime) {
           video.pause();
           video.currentTime = activeClip.startTime;
@@ -69,7 +63,6 @@ export default function ClipPreviewPlayer({ videoUrl, activeClip, overlayOptions
     return () => cancelAnimationFrame(animId);
   }, [activeClip, overlayOptions, introDuration]);
 
-  // When active clip changes, seek to clip start
   useEffect(() => {
     const video = videoRef.current;
     if (video && activeClip) {
@@ -140,7 +133,7 @@ export default function ClipPreviewPlayer({ videoUrl, activeClip, overlayOptions
         </div>
       </div>
 
-      {/* Hidden Video + Canvas Player */}
+      {/* Video Canvas Container */}
       <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shadow-inner flex items-center justify-center">
         <video
           ref={videoRef}
@@ -155,7 +148,7 @@ export default function ClipPreviewPlayer({ videoUrl, activeClip, overlayOptions
           onClick={togglePlay}
         />
 
-        {/* Play Overlay Button if paused */}
+        {/* Play Overlay Button */}
         {!isPlaying && (
           <button
             onClick={togglePlay}
@@ -212,7 +205,7 @@ export default function ClipPreviewPlayer({ videoUrl, activeClip, overlayOptions
           </div>
 
           <div className="text-xs text-slate-400 font-medium">
-            Timestamp: <span className="font-mono text-slate-200">{formatDuration(activeClip.startTime)} ? {formatDuration(activeClip.endTime)}</span>
+            Timestamp: <span className="font-mono text-slate-200">{formatDuration(activeClip.startTime)} - {formatDuration(activeClip.endTime)}</span>
           </div>
         </div>
       </div>

@@ -134,7 +134,7 @@ export function generateDemoImage(width = 1920, height = 1080, title = 'Sample 4
 
   ctx.fillStyle = '#38BDF8';
   ctx.font = 'bold 32px "JetBrains Mono", monospace';
-  ctx.fillText(`${width} × ${height} High Resolution Asset`, width / 2, height / 2 + 40);
+  ctx.fillText(`${width} Ã— ${height} High Resolution Asset`, width / 2, height / 2 + 40);
 
   return new Promise((resolve) => {
     canvas.toBlob((blob) => {

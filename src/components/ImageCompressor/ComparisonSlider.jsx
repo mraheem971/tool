@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+ï»¿import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Columns, ZoomIn, Eye, Sparkles } from 'lucide-react';
 import { formatBytes } from '../../utils/formatters';
 
@@ -95,14 +95,14 @@ export default function ComparisonSlider({ originalItem, compressedItem }) {
         <div className="absolute top-4 left-4 pointer-events-none">
           <div className="px-3 py-1.5 rounded-lg bg-slate-900/90 backdrop-blur-md border border-slate-700 text-xs font-bold text-slate-200 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-            Original: {formatBytes(originalItem.size)} ({originalItem.width}×{originalItem.height})
+            Original: {formatBytes(originalItem.size)} ({originalItem.width} Ã— {originalItem.height})
           </div>
         </div>
 
         <div className="absolute top-4 right-4 pointer-events-none">
           <div className="px-3 py-1.5 rounded-lg bg-slate-900/90 backdrop-blur-md border border-cyan-500/30 text-xs font-bold text-cyan-300 flex items-center gap-2 shadow-lg">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            Optimized: {formatBytes(compressedItem.compressedSize)} ({compressedItem.width}×{compressedItem.height})
+            Optimized: {formatBytes(compressedItem.compressedSize)} ({compressedItem.width} Ã— {compressedItem.height})
             <span className="bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded text-[10px] font-extrabold border border-emerald-500/30">
               -{compressedItem.savingsPercent}%
             </span>

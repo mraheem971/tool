@@ -1,15 +1,15 @@
-import React from 'react';
+ï»¿import React from 'react';
 import { Sliders, Zap, Video, Volume2, VolumeX, Sparkles, Check, ChevronDown, Target, Scale } from 'lucide-react';
 import { formatBytes } from '../../utils/formatters';
 
 export default function VideoSettings({ settings, setSettings, videoMeta, isCompressing }) {
   const compressionLevels = [
-    { id: 'medium', label: 'Medium — recommended (~50% smaller)', desc: 'Balanced compression with sharp quality' },
-    { id: 'high', label: 'High — smaller file (~70% smaller)', desc: 'Optimized for quick sharing & low storage' },
-    { id: 'extreme', label: 'Extreme — smallest file (~85% smaller)', desc: 'Maximum compression down to tiny size' },
-    { id: 'low', label: 'Low — best quality (~30% smaller)', desc: 'Maximum visual fidelity' },
+    { id: 'medium', label: 'Medium â€” recommended (~50% smaller)', desc: 'Balanced compression with sharp quality' },
+    { id: 'high', label: 'High â€” smaller file (~70% smaller)', desc: 'Optimized for quick sharing & low storage' },
+    { id: 'extreme', label: 'Extreme â€” smallest file (~85% smaller)', desc: 'Maximum compression down to tiny size' },
+    { id: 'low', label: 'Low â€” best quality (~30% smaller)', desc: 'Maximum visual fidelity' },
     { id: 'target_size', label: 'Custom Target Size (MB)', desc: 'Compress video to exact target size in MB' },
-    { id: 'custom', label: 'Custom — manual bitrate', desc: 'Manual resolution and bitrate control' }
+    { id: 'custom', label: 'Custom â€” manual bitrate', desc: 'Manual resolution and bitrate control' }
   ];
 
   const presets = [
@@ -48,7 +48,6 @@ export default function VideoSettings({ settings, setSettings, videoMeta, isComp
     { id: '50%', label: '50% Scale' }
   ];
 
-  // Calculate estimated size for display
   let estimatedBytes = null;
   if (videoMeta?.size && videoMeta?.duration) {
     if (settings.targetSizeMB) {
@@ -124,7 +123,7 @@ export default function VideoSettings({ settings, setSettings, videoMeta, isComp
         )}
       </div>
 
-      {/* Compression Level Dropdown (Requested) */}
+      {/* Compression Level Dropdown */}
       <div className="flex flex-col gap-2">
         <label className="text-sm font-semibold text-slate-200 flex items-center justify-between">
           <span className="flex items-center gap-1.5">
@@ -155,7 +154,7 @@ export default function VideoSettings({ settings, setSettings, videoMeta, isComp
         </div>
       </div>
 
-      {/* Direct Target File Size Slider (When target_size is active) */}
+      {/* Direct Target File Size Slider */}
       {settings.level === 'target_size' && (
         <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex flex-col gap-3">
           <div className="flex items-center justify-between">
@@ -191,7 +190,7 @@ export default function VideoSettings({ settings, setSettings, videoMeta, isComp
         </div>
       )}
 
-      {/* Quick Presets (Discord, WhatsApp, etc.) */}
+      {/* Quick Presets */}
       <div className="flex flex-col gap-2.5">
         <label className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
           <Zap className="w-3.5 h-3.5 text-cyan-400" />
@@ -222,7 +221,7 @@ export default function VideoSettings({ settings, setSettings, videoMeta, isComp
         </div>
       </div>
 
-      {/* Manual Resolution & Bitrate Controls (Only shown for custom or fine-tuning) */}
+      {/* Manual Controls */}
       {settings.level === 'custom' && (
         <>
           <div className="flex flex-col gap-2.5">

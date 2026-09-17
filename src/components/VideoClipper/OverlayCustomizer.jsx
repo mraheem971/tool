@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Sparkles, Palette, Type, Layout, Sliders, Check, Eye } from 'lucide-react';
 import { OVERLAY_TEMPLATES, OVERLAY_POSITIONS } from '../../utils/canvasOverlay';
 
@@ -19,7 +19,7 @@ export default function OverlayCustomizer({ options, setOptions }) {
           <h3 className="font-bold text-base text-slate-100">5-Second Dynamic Intro Overlay</h3>
         </div>
         <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
-          Auto 5s Title & Part #
+          Auto 5s Title &amp; Part #
         </span>
       </div>
 
@@ -61,7 +61,7 @@ export default function OverlayCustomizer({ options, setOptions }) {
           type="text"
           disabled={options.showSubtitle === false}
           value={options.subtitle}
-          placeholder="e.g. ?? Follow for Part 2"
+          placeholder="e.g. Follow for Part 2"
           onChange={(e) => setOptions({ ...options, subtitle: e.target.value })}
           className="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50"
         />

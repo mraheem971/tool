@@ -17,7 +17,7 @@ export default function VideoClipper() {
   const [clipDuration, setClipDuration] = useState(30); // Default 30s (enforcing minimum 30s)
   const [clipQuality, setClipQuality] = useState({
     id: 'medium',
-    label: 'Medium — recommended',
+    label: 'Medium â€” recommended',
     bitrate: 2800,
     resolution: '720p'
   });
@@ -316,7 +316,7 @@ export default function VideoClipper() {
           <div>
             <h3 className="text-lg font-bold text-slate-200">Upload 30+ Min or Long-form Video</h3>
             <p className="text-xs text-slate-400 mt-1">
-              Supports MP4, MOV, WebM, MKV • Podcasts, streams, gaming, tutorials, meetings
+              Supports MP4, MOV, WebM, MKV â€¢ Podcasts, streams, gaming, tutorials, meetings
             </p>
           </div>
           
@@ -325,9 +325,9 @@ export default function VideoClipper() {
               <Sparkles className="w-3.5 h-3.5" />
               Auto 5-Second Part # & Title Bumper
             </span>
-            <span className="text-slate-500">•</span>
-            <span>Clip Duration: = 30s (Min)</span>
-            <span className="text-slate-500">•</span>
+            <span className="text-slate-500">â€¢</span>
+            <span>Clip Duration: â‰¥ 30s (Min)</span>
+            <span className="text-slate-500">â€¢</span>
             <span>Instant Zero-Upload Processing</span>
           </div>
 
@@ -361,7 +361,7 @@ export default function VideoClipper() {
             </div>
             <div>
               <span className="text-[11px] font-semibold text-slate-500">Quality Preset</span>
-              <p className="text-xs font-bold text-emerald-400">{clipQuality?.label?.split('—')[0] || 'Medium'}</p>
+              <p className="text-xs font-bold text-emerald-400">{clipQuality?.label?.split('â€”')[0]?.trim() || 'Medium'}</p>
             </div>
           </div>
 

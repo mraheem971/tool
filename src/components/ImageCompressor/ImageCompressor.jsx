@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { UploadCloud, Image as ImageIcon, Download, Archive, Trash2, Sparkles, RefreshCw, CheckCircle2, PlayCircle } from 'lucide-react';
+ï»¿import React, { useState, useEffect, useRef } from 'react';
+import { UploadCloud, Image as ImageIcon, Download, Archive, Trash2, Sparkles, RefreshCw, CheckCircle2, PlayCircle, Plus } from 'lucide-react';
 import { processImage } from '../../services/imageProcessor';
 import { downloadZip, downloadFile } from '../../services/zipExporter';
 import { formatBytes } from '../../utils/formatters';
@@ -20,7 +20,6 @@ export default function ImageCompressor() {
 
   const fileInputRef = useRef(null);
 
-  // Re-process when settings change
   useEffect(() => {
     if (images.length > 0) {
       reprocessAllImages(images.map(img => img.rawFile), settings);
@@ -104,7 +103,6 @@ export default function ImageCompressor() {
     setSelectedIndex(0);
   };
 
-  // Stats calculation
   const totalOriginal = images.reduce((acc, img) => acc + img.original.size, 0);
   const totalCompressed = images.reduce((acc, img) => acc + img.compressed.compressedSize, 0);
   const totalSavings = totalOriginal > 0 ? Math.round(((totalOriginal - totalCompressed) / totalOriginal) * 1000) / 10 : 0;
@@ -167,14 +165,14 @@ export default function ImageCompressor() {
             <UploadCloud className="w-10 h-10" />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-slate-200">Drag & Drop Images here, or Browse</h3>
+            <h3 className="text-lg font-bold text-slate-200">Drag &amp; Drop Images here, or Browse</h3>
             <p className="text-xs text-slate-400 mt-1">
-              Supports PNG, JPG, WebP, AVIF, GIF, BMP, SVG • Multiple batch uploads supported
+              Supports PNG, JPG, WebP, AVIF, GIF, BMP, SVG â€¢ Multiple batch uploads supported
             </p>
           </div>
           <div className="flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            Zero upload delay • 100% processed locally on your device
+            Zero upload delay â€¢ 100% processed locally on your device
           </div>
 
           <div className="pt-2">
@@ -184,7 +182,7 @@ export default function ImageCompressor() {
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-bold transition-all"
             >
               {isGeneratingDemo ? <RefreshCw className="w-4 h-4 animate-spin" /> : <PlayCircle className="w-4 h-4" />}
-              <span>{isGeneratingDemo ? 'Generating Samples...' : '? Try Instant Demo Images (1080p & 4K)'}</span>
+              <span>{isGeneratingDemo ? 'Generating Samples...' : 'Try Instant Demo Images (1080p & 4K)'}</span>
             </button>
           </div>
         </div>
@@ -230,7 +228,8 @@ export default function ImageCompressor() {
                   onClick={() => fileInputRef.current?.click()}
                   className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
                 >
-                  + Add More Files
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Add More Files</span>
                 </button>
                 <input
                   ref={fileInputRef}

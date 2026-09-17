@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+ï»¿import React, { useState, useRef } from 'react';
 import { UploadCloud, Video, Download, Play, Pause, RefreshCw, Sparkles, CheckCircle2, AlertCircle, Trash2, PlayCircle } from 'lucide-react';
 import { getVideoMetadata, compressVideo } from '../../services/videoCompressorEngine';
 import { downloadFile } from '../../services/zipExporter';
@@ -14,7 +14,7 @@ export default function VideoCompressor() {
   const [isGeneratingDemo, setIsGeneratingDemo] = useState(false);
   const [progress, setProgress] = useState(null);
   const [settings, setSettings] = useState({
-    level: 'medium', // Default to medium (~50% smaller)
+    level: 'medium',
     preset: null,
     targetResolution: 'auto',
     targetSizeMB: null,
@@ -50,7 +50,7 @@ export default function VideoCompressor() {
     e.stopPropagation();
     setIsGeneratingDemo(true);
     try {
-      const demo = await generateDemoVideo(60); // 60s sample
+      const demo = await generateDemoVideo(60);
       await handleFile(demo);
     } catch (err) {
       console.error('Failed to generate demo:', err);
@@ -110,7 +110,7 @@ export default function VideoCompressor() {
             <span className="p-2 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
               <Video className="w-6 h-6" />
             </span>
-            Video Compressor & Optimizer
+            Video Compressor &amp; Optimizer
           </h2>
           <p className="text-sm text-slate-400 mt-1">
             Compress videos up to <strong className="text-cyan-400">85%+ smaller</strong> with adaptive bitrate scaling, target size limits (Discord 8MB/25MB, WhatsApp 16MB), and resolution downscaling.
@@ -148,9 +148,9 @@ export default function VideoCompressor() {
             <UploadCloud className="w-10 h-10" />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-slate-200">Drag & Drop a Video file, or Browse</h3>
+            <h3 className="text-lg font-bold text-slate-200">Drag &amp; Drop a Video file, or Browse</h3>
             <p className="text-xs text-slate-400 mt-1">
-              Supports MP4, WebM, MOV, MKV, AVI • Up to any duration • Fast local encoding
+              Supports MP4, WebM, MOV, MKV, AVI â€¢ Up to any duration â€¢ Fast local encoding
             </p>
           </div>
           <div className="flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300">
@@ -165,14 +165,14 @@ export default function VideoCompressor() {
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-bold transition-all"
             >
               {isGeneratingDemo ? <RefreshCw className="w-4 h-4 animate-spin" /> : <PlayCircle className="w-4 h-4" />}
-              <span>{isGeneratingDemo ? 'Generating Sample Video...' : '? Try Instant 60s Demo Video'}</span>
+              <span>{isGeneratingDemo ? 'Generating Sample Video...' : 'Try Instant 60s Demo Video'}</span>
             </button>
           </div>
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
-          {/* Main Video View (Left 7 Cols) */}
+          {/* Main Video View */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             
             {/* Video Player Card */}
@@ -181,7 +181,7 @@ export default function VideoCompressor() {
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-slate-200 truncate max-w-sm">{videoMeta.name}</span>
                   <span className="text-xs text-slate-400 font-mono">
-                    {formatBytes(videoMeta.size)} • {videoMeta.width}×{videoMeta.height} • {formatDuration(videoMeta.duration)}
+                    {formatBytes(videoMeta.size)} â€¢ {videoMeta.width} Ã— {videoMeta.height} â€¢ {formatDuration(videoMeta.duration)}
                   </span>
                 </div>
                 {compressedResult && (
@@ -269,7 +269,7 @@ export default function VideoCompressor() {
             </div>
           </div>
 
-          {/* Settings Sidebar (Right 5 Cols) */}
+          {/* Settings Sidebar */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             <VideoSettings
               settings={settings}

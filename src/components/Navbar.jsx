@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Layers, Image as ImageIcon, Video, Scissors, Sparkles, Zap, ShieldCheck } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab }) {
@@ -47,7 +47,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
                   v2.0
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-medium">Smart Media Studio & Long-form Clipper</p>
+              <p className="text-xs text-slate-400 font-medium">Smart Media Studio &amp; Long-form Clipper</p>
             </div>
           </div>
 
@@ -83,7 +83,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
           {/* Privacy & Fast processing badge */}
           <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>100% Client-Side Private & Fast</span>
+            <span>100% Client-Side Private &amp; Fast</span>
           </div>
 
         </div>

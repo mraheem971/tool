@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Play, Download, CheckSquare, Square, Film, Clock, Sparkles } from 'lucide-react';
 import { formatDuration } from '../../utils/formatters';
 
@@ -74,7 +74,7 @@ export default function ClipTimelineGrid({
                 </div>
               </div>
 
-              {/* Thumbnail / Video Frame Placeholder */}
+              {/* Thumbnail */}
               <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800/80 group">
                 {clip.thumbnailUrl ? (
                   <img

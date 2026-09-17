@@ -1,4 +1,4 @@
-import React from 'react';
+ï»¿import React from 'react';
 import { Clock, ShieldAlert, Sparkles, Check, ChevronDown, Sliders } from 'lucide-react';
 import { formatDuration } from '../../utils/formatters';
 
@@ -10,10 +10,10 @@ export default function ClipDurationSelector({
   setClipQuality
 }) {
   const compressionLevels = [
-    { id: 'low', label: 'Low — best quality', bitrate: 4500, resolution: '1080p' },
-    { id: 'medium', label: 'Medium — recommended', bitrate: 2800, resolution: '720p' },
-    { id: 'high', label: 'High — smaller file', bitrate: 1400, resolution: '720p' },
-    { id: 'extreme', label: 'Extreme — smallest file', bitrate: 700, resolution: '480p' }
+    { id: 'low', label: 'Low â€” best quality', bitrate: 4500, resolution: '1080p' },
+    { id: 'medium', label: 'Medium â€” recommended', bitrate: 2800, resolution: '720p' },
+    { id: 'high', label: 'High â€” smaller file', bitrate: 1400, resolution: '720p' },
+    { id: 'extreme', label: 'Extreme â€” smallest file', bitrate: 700, resolution: '480p' }
   ];
 
   const presets = [
@@ -33,7 +33,6 @@ export default function ClipDurationSelector({
   const handleCustomChange = (e) => {
     const val = parseInt(e.target.value);
     if (!isNaN(val)) {
-      // Enforce minimum 30 seconds
       setClipDuration(Math.max(30, val));
     }
   };
@@ -53,14 +52,14 @@ export default function ClipDurationSelector({
       <div className="flex items-center justify-between border-b border-slate-800 pb-4">
         <div className="flex items-center gap-2">
           <Clock className="w-5 h-5 text-cyan-400" />
-          <h3 className="font-bold text-base text-slate-100">Clip Duration & Quality</h3>
+          <h3 className="font-bold text-base text-slate-100">Clip Duration &amp; Quality</h3>
         </div>
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-xs font-bold text-cyan-400">
           <span>Min Duration: 30s</span>
         </div>
       </div>
 
-      {/* Compression Level Dropdown (Requested) */}
+      {/* Compression Level Dropdown */}
       <div className="flex flex-col gap-2">
         <label className="text-sm font-semibold text-slate-200 flex items-center justify-between">
           <span className="flex items-center gap-1.5">
@@ -68,7 +67,7 @@ export default function ClipDurationSelector({
             Compression level
           </span>
           <span className="text-xs font-mono font-bold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
-            {clipQuality?.resolution || '720p'} • {clipQuality?.bitrate || 2800} kbps
+            {clipQuality?.resolution || '720p'} â€¢ {clipQuality?.bitrate || 2800} kbps
           </span>
         </label>
         
@@ -106,7 +105,7 @@ export default function ClipDurationSelector({
       {/* Preset Duration Buttons Grid */}
       <div className="flex flex-col gap-2">
         <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-          Target Duration Presets (= 30s)
+          Target Duration Presets (&ge; 30s)
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {presets.map((p) => {

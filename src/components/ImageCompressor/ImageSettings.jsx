@@ -1,13 +1,13 @@
-import React from 'react';
+ï»¿import React from 'react';
 import { Sliders, Maximize2, Zap, FileType, Check, ChevronDown, Sparkles } from 'lucide-react';
 
 export default function ImageSettings({ settings, setSettings, onApplyAll }) {
   const compressionLevels = [
-    { id: 'low', label: 'Low — best quality', quality: 0.92, scale: 100 },
-    { id: 'medium', label: 'Medium — recommended', quality: 0.80, scale: 100 },
-    { id: 'high', label: 'High — smaller file', quality: 0.60, scale: 85 },
-    { id: 'extreme', label: 'Extreme — smallest file', quality: 0.40, scale: 65 },
-    { id: 'custom', label: 'Custom — manual slider', quality: null, scale: null }
+    { id: 'low', label: 'Low â€” best quality', quality: 0.92, scale: 100 },
+    { id: 'medium', label: 'Medium â€” recommended', quality: 0.80, scale: 100 },
+    { id: 'high', label: 'High â€” smaller file', quality: 0.60, scale: 85 },
+    { id: 'extreme', label: 'Extreme â€” smallest file', quality: 0.40, scale: 65 },
+    { id: 'custom', label: 'Custom â€” manual slider', quality: null, scale: null }
   ];
 
   const formats = [
@@ -53,7 +53,7 @@ export default function ImageSettings({ settings, setSettings, onApplyAll }) {
         </span>
       </div>
 
-      {/* Compression Level Dropdown (Requested) */}
+      {/* Compression Level Dropdown */}
       <div className="flex flex-col gap-2">
         <label className="text-sm font-semibold text-slate-200 flex items-center justify-between">
           <span className="flex items-center gap-1.5">
