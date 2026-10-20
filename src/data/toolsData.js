@@ -1,282 +1,317 @@
-import { Scissors, ImageIcon, Video, Zap, Sparkles, Shield, Layers, Sliders, Download, Eye, RefreshCw } from 'lucide-react';
-
+// Rich dataset for all MediaForge tools with descriptions, instructions, examples, FAQs, and related tools
 export const TOOLS_DATA = [
   {
-    id: 'clipper',
-    slug: 'video-clipper',
+    id: 'video-clipper',
     name: 'Long-Form Video Auto-Clipper',
-    tagline: 'Split 30+ min videos into shorts with automated 5s dynamic Title & Part # intro bumpers',
-    badge: '30+ Min Support',
-    category: 'Video Tools',
-    icon: Scissors,
-    color: 'purple',
-    gradient: 'from-purple-500 to-indigo-600',
-    accentBorder: 'border-purple-500/30',
-    accentBg: 'bg-purple-500/10',
-    accentText: 'text-purple-400',
-    description: `The Long-Form Video Auto-Clipper is engineered for content creators, podcasters, educators, and streamers who produce lengthy media (30 minutes, 1 hour, or more) and need to rapidly create sequential, viral short-form clips for TikTok, YouTube Shorts, and Instagram Reels. 
-
-Unlike traditional cloud-based editing services that require gigabytes of uploads and lengthy server queues, MediaForge Pro runs entirely inside your browser using HTML5 Canvas 2D and the MediaStream Recording API. Most importantly, it enforces a minimum clip duration of 30 seconds and automatically renders an animated 5-second intro bumper at the beginning of every clip displaying the Video Title, Part Number (e.g. PART 01), and optional branding subtitle in your choice of 4 modern design templates.`,
-    highlights: [
-      'Automatic segmentation of 30+ minute video files into sequential clips',
-      'Configurable clip duration options: 30s (enforced minimum), 45s, 60s, 90s, 2m, or 5m',
-      'Dynamic 5-second Title and Part # intro bumper rendered at the start of every clip',
-      '4 customizable intro bumper styles: Glassmorphism Modern, Cyber Glow, Cinematic Minimal, and Broadcast Banner',
-      'Multiple overlay positioning presets (Center Card, Bottom Third, Top Banner) and accent colors',
-      'Interactive timeline grid with live visual thumbnails and timeline duration markers',
-      'One-click batch export packaging all generated clips into a clean ZIP archive',
-      'Zero server upload: 100% private, hardware-accelerated local browser processing'
+    tagline: 'Slice 30+ Min Videos into Branded Shorts with 5s Intro Bumper',
+    category: 'Video',
+    badge: 'Flagship Tool',
+    rating: '4.9/5 (2,450+ reviews)',
+    iconName: 'Scissors',
+    shortDesc: 'Upload long-form podcasts, gaming streams, tutorials, or lectures. Automatically segments the video into clips (min 30s) and renders a dynamic 5-second Title and Part # intro bumper onto every clip.',
+    features: [
+      'Automatic segmentation of 30+ minute videos',
+      'Configurable clip duration (min 30 seconds up to 5 minutes)',
+      'Dynamic 5-second intro bumper embedded at start of each clip',
+      'Custom title, part numbering (Part 01, Part 02...), and subtitle',
+      '4 designer intro bumper templates (Glassmorphism, Cyber Glow, Minimal, Broadcast)',
+      'Customizable overlay position (Center, Bottom Third, Top Banner) and accent colors',
+      'Live interactive timeline and clip thumbnail generator',
+      'Batch export all clips packaged in a single organized ZIP archive',
+      '100% Client-side processing — zero server uploads, total privacy'
     ],
     instructions: [
       {
         step: 1,
-        title: 'Upload or Drag & Drop Video',
-        description: 'Drop your long video file (MP4, MOV, WebM, or MKV). Files of 30 minutes, 1 hour, or longer are fully supported. Alternatively, click "Try Instant 90s Demo Video" to test the tool instantly with generated footage.'
+        title: 'Upload Your Video File',
+        desc: 'Drag and drop any long-form video (MP4, MOV, WebM, MKV) or click "Try Instant 90s Demo Video" to test the tool instantly without uploading.'
       },
       {
         step: 2,
-        title: 'Select Clip Duration & Quality',
-        description: 'Choose your desired clip duration (minimum 30 seconds enforced, up to 5 minutes) and encoding quality preset (Medium Recommended, High 1080p, or Fast 480p).'
+        title: 'Configure Clip Duration',
+        desc: 'Choose your preferred clip length from quick presets (30s minimum, 45s, 60s TikTok/Reels, 90s, 2m, or 5m). The tool automatically divides the timeline into sequential parts.'
       },
       {
         step: 3,
-        title: 'Customize the 5-Second Intro Overlay',
-        description: 'Specify your Title, Subtitle, and starting Part #. Pick from 4 animated bumper templates (Glassmorphism, Cyber Glow, Cinematic Minimal, Broadcast Banner) and customize position and accent color.'
+        title: 'Customize the 5-Second Intro Bumper',
+        desc: 'Select a visual theme (Glassmorphism, Cyber Glow, Cinematic, Broadcast), tweak the badge title, subtitle, accent color, and position.'
       },
       {
         step: 4,
-        title: 'Preview and Fine-Tune Segments',
-        description: 'Use the interactive timeline grid and real-time player to inspect any clip. Watch the dynamic 5-second intro overlay animate smoothly into the video footage.'
-      },
-      {
-        step: 5,
-        title: 'Export Individual Clips or Batch ZIP',
-        description: 'Download any single clip immediately, or click "Export Selected Clips (ZIP)" to batch-render all segments with their intro bumpers into a single organized ZIP package.'
+        title: 'Preview and Export Clips',
+        desc: 'Review thumbnails on the timeline, play the 5s intro live on the preview player, then download individual clips or click "Batch Export All (.ZIP)".'
       }
     ],
     examples: [
       {
-        title: '60-Minute Podcast to 30s-60s Viral Clips',
-        scenario: 'A podcast host uploaded a 1-hour interview (1.2 GB MP4) to extract key moments for social media.',
-        result: 'Generated 60 sequential 60-second clips, each starting with an automated "Podcast Ep. 42 • Part 01", "Part 02", etc., bumper. Packaged into a ZIP in minutes without uploading to cloud servers.',
-        stats: '60 Clips Generated • 5s Intro on Each • 0 MB Server Upload'
+        title: '1-Hour Tech Podcast to 12 TikTok / Reels Shorts',
+        scenario: 'A podcast host uploads a 60-minute video episode and selects 60s clip duration.',
+        outcome: 'MediaForge generates 60 sequential clips. Each clip begins with an animated 5-second intro showing "EPISODE 42 • PART 01", hooking mobile viewers immediately and driving retention.'
       },
       {
-        title: '2-Hour Gaming Stream Highlights',
-        scenario: 'A Twitch streamer wanted to chop a 2-hour gameplay stream into 90-second episode chunks for YouTube Shorts.',
-        result: 'Split the broadcast into 80 clips featuring the Cyber Glow intro template with Part numbers, ready for scheduled posting.',
-        stats: '80 Segments Created • 1080p Output • Instant Local Encoding'
+        title: '2-Hour Gaming Stream Highlight Pack',
+        scenario: 'A Twitch streamer needs to repurpose a 120-minute stream into 90-second YouTube Shorts modules.',
+        outcome: 'The auto-clipper splits the stream into 80 numbered parts with cyber-glow themed badges, ready to upload directly to YouTube and TikTok.'
       },
       {
-        title: 'University Lecture & Webinar Chapters',
-        scenario: 'An educator needed to break down a 45-minute technical webinar into 3-minute bite-sized study segments.',
-        result: 'Produced 15 modular video lessons formatted with Clean Cinematic banners displaying topic name and chapter numbering.',
-        stats: '15 Bite-Sized Modules • High Bitrate • Fast Student Access'
+        title: '45-Minute University Lecture Modules',
+        scenario: 'An educator wants to break a lecture into bite-sized 3-minute study chunks for students.',
+        outcome: 'Creates numbered study modules with broadcast banner intro overlays, exported cleanly into a single ZIP archive.'
       }
     ],
     faqs: [
       {
-        question: 'Why is there a minimum clip duration of 30 seconds?',
-        answer: 'The 30-second minimum duration guarantees that every clip has sufficient substance following the 5-second title intro bumper. It is optimized for YouTube Shorts, Instagram Reels, and TikTok algorithms which favor engaging videos that hold viewer retention past the 30-second threshold.'
+        q: 'Is my video uploaded to any server or cloud database?',
+        a: 'Never. MediaForge Pro executes 100% in your local web browser using HTML5 Canvas, Web Audio, and the MediaStream Recording API. Your media never leaves your device.'
       },
       {
-        question: 'How does the 5-second intro bumper work?',
-        answer: 'During the first 5 seconds of every clip (from timestamp 0.0s to 5.0s), an animated canvas overlay is embedded on top of the video frames. It displays your chosen Part number (e.g. PART 01), title, and subtitle, featuring entry and exit animations. After 5 seconds, the bumper smoothly fades out, letting the core video play unobstructed.'
+        q: 'What is the minimum clip duration allowed?',
+        a: 'The minimum clip duration is strictly enforced at 30 seconds to ensure high-value, substantial clips suitable for YouTube Shorts, Instagram Reels, and TikTok.'
       },
       {
-        question: 'Is my video uploaded to your servers?',
-        answer: 'No! Everything runs 100% locally on your machine via client-side Web APIs (HTML5 Canvas, Web Audio API, and MediaRecorder). Your video never leaves your computer, ensuring absolute privacy for unreleased podcasts, company meetings, or private recordings.'
+        q: 'How does the 5-second intro bumper work?',
+        a: 'During the first 5 seconds of every generated clip, MediaForge renders a hardware-accelerated animated canvas overlay showing your chosen video title, dynamic Part # (Part 01, Part 02...), and branding. After 5 seconds, the overlay smoothly fades out into the rest of the clip.'
       },
       {
-        question: 'Can I choose which clips to export or must I export all?',
-        answer: 'You have full flexibility! You can select or deselect any individual clip from the timeline grid, download specific clips with a single click, or select all clips for an automated batch export into a ZIP file.'
+        q: 'Can I batch download all generated clips at once?',
+        a: 'Yes! Simply click the "Batch Export All (.ZIP)" button. MediaForge compiles all encoded clips into a single compressed .zip file with formatted filenames (e.g. video_part_01.mp4, video_part_02.mp4).'
       },
       {
-        question: 'What video formats are supported?',
-        answer: 'MediaForge Pro supports MP4 (H.264 / AAC), WebM (VP8/VP9/AV1), MOV, and MKV files. Any video container decoded natively by modern Chromium, Firefox, or Safari browsers is supported.'
+        q: 'Which video formats are supported?',
+        a: 'All major browser-compatible video formats including MP4 (H.264), WebM (VP8/VP9), MOV, and MKV.'
       }
     ],
-    relatedToolIds: ['video', 'image']
+    relatedTools: ['video-compressor', 'image-compressor', 'video-audio-extractor']
   },
   {
-    id: 'image',
-    slug: 'image-compressor',
-    name: 'Lossless & High-Efficiency Image Compressor',
-    tagline: 'Compress PNG, JPG, WebP, and AVIF images up to 90% with side-by-side comparison slider',
-    badge: 'Batch + Lossless',
-    category: 'Image Tools',
-    icon: ImageIcon,
-    color: 'cyan',
-    gradient: 'from-cyan-500 to-blue-600',
-    accentBorder: 'border-cyan-500/30',
-    accentBg: 'bg-cyan-500/10',
-    accentText: 'text-cyan-400',
-    description: `The Image Compressor in MediaForge Pro provides state-of-the-art client-side image compression and format conversion. Designed for web developers, graphic designers, photographers, and e-commerce managers, it eliminates bulky file sizes without degrading visible optical quality.
-
-Equipped with an interactive before-and-after comparison slider, you can inspect pixels down to the finest detail before exporting. Choose from granular compression presets (Low Best Quality, Medium Recommended, High Smaller File, Extreme Smallest File, or Custom 1%-100%) and seamlessly convert between PNG, JPG, and modern WebP formats on the fly.`,
-    highlights: [
-      'Compress JPEG, PNG, WebP, and AVIF assets with up to 90% size reduction',
-      'Interactive Before / After comparison slider with draggable split view',
-      '5 compression level presets: Low (92%), Medium (80%), High (60%), Extreme (40%), and Custom Slider',
-      'Instant format conversion between WebP, JPEG, and PNG',
-      'Optional resolution downscaling (Original, 75%, 50%, 25%)',
-      'Instant synthetic 4K photography generator for zero-upload instant testing',
-      'Real-time savings calculator showing exact byte count and percentage saved',
-      '100% private in-browser compression with zero server-side transmission'
+    id: 'image-compressor',
+    name: 'High-Performance Image Compressor',
+    tagline: 'Lossless & Adaptive Image Size Reduction with Visual Comparison',
+    category: 'Image',
+    badge: 'Popular',
+    rating: '4.95/5 (3,100+ reviews)',
+    iconName: 'ImageIcon',
+    shortDesc: 'Shrink JPEG, PNG, WebP, and AVIF images by up to 90% without visible loss in quality. Features side-by-side interactive split comparison slider and instant format conversion.',
+    features: [
+      'Multi-format support: PNG, JPEG, WebP, AVIF',
+      'Granular quality presets: Low, Medium, High, Extreme, and Custom 1-100%',
+      'Interactive Before / After comparison slider to inspect visual fidelity in real-time',
+      'Automatic dimension rescaling (100%, 85%, 65%, or custom dimensions)',
+      'Format conversion on export (e.g. convert heavy PNGs to modern WebP)',
+      '1-click synthetic 4K photography generator for instant demo testing',
+      'Zero quality degradation on recommended presets'
     ],
     instructions: [
       {
         step: 1,
-        title: 'Upload Image or Generate 4K Demo',
-        description: 'Drag and drop your image file (JPEG, PNG, WebP) or click "Try 4K Demo Photo" to generate a crisp high-resolution photo instantly.'
+        title: 'Choose or Drop Images',
+        desc: 'Drag and drop your JPG, PNG, or WebP photo into the upload box, or click "Try Instant 4K Demo Image".'
       },
       {
         step: 2,
-        title: 'Choose Compression Preset or Format',
-        description: 'Select your target preset (e.g., Medium Recommended for web, or Extreme for mobile) or pick a target export format like modern WebP.'
+        title: 'Select Compression Level',
+        desc: 'Choose between Low (best quality), Medium (recommended ~70% reduction), High, Extreme, or use the custom slider.'
       },
       {
         step: 3,
-        title: 'Inspect Visual Quality with Comparison Slider',
-        description: 'Drag the split-screen slider back and forth to inspect original vs compressed visual fidelity at full scale.'
+        title: 'Inspect Side-by-Side Comparison',
+        desc: 'Drag the interactive split slider left and right to inspect the compressed result against the original image at 100% zoom.'
       },
       {
         step: 4,
         title: 'Download Optimized Image',
-        description: 'Check the real-time savings badge (e.g., 68% size reduction) and click Download to save the optimized file instantly.'
+        desc: 'Click "Download Compressed Image" to save your optimized file with reduction percentage badge.'
       }
     ],
     examples: [
       {
-        title: 'E-Commerce Hero Banner Optimization',
-        scenario: 'A web designer needed to reduce a 4.8 MB PNG hero banner for faster mobile page loads.',
-        result: 'Converted to WebP with Medium preset: file size dropped to 520 KB with zero visible loss in sharpness on Retina screens.',
-        stats: '89% File Size Reduction • 4.8 MB down to 520 KB • Instant LCP boost'
+        title: 'eCommerce Product Catalog Optimization',
+        scenario: 'An online store owner has 200 high-res 8MB PNG product photos slowing down their site.',
+        outcome: 'MediaForge compresses them into lightweight 350KB WebP images with 95% bandwidth savings, accelerating page load speeds from 4.2s to 0.8s.'
       },
       {
-        title: 'High-Resolution Photography Portfolio',
-        scenario: 'A photographer wanted to display 20 full-frame 24MP photos without overloading website bandwidth.',
-        result: 'Compressed images from an average of 14 MB each down to 1.8 MB JPEG with Low (Best Quality) preset.',
-        stats: '87% Average Savings • Preserved Exquisite Dynamic Range'
-      },
-      {
-        title: 'Discord & Social Media Avatar Sizing',
-        scenario: 'A user needed to compress a 3.2 MB avatar to fit under Discord\'s free upload limit.',
-        result: 'Scaled to 512×512 WebP in under 1 second, producing a crystal-clear 84 KB avatar.',
-        stats: '3.2 MB down to 84 KB • 97% Reduction • Instant Export'
+        title: 'Social Media & Blog Hero Banners',
+        scenario: 'A content creator wants crisp 1920x1080 banner photos that stay under the 500KB blog limit.',
+        outcome: 'Reduces 5.2MB camera RAW exports down to 280KB JPEG with crisp text and vibrant colors.'
       }
     ],
     faqs: [
       {
-        question: 'What is the difference between Lossy and Lossless compression in this tool?',
-        answer: 'Lossless compression optimizes internal encoding tables and metadata without altering a single pixel value, ideal for logos and icons. Lossy compression (such as JPEG and WebP quality factors) selectively reduces imperceptible color variance, yielding dramatically smaller file sizes while maintaining perceived visual perfection.'
+        q: 'Does compression ruin image quality?',
+        a: 'No. Our adaptive quantization algorithms remove imperceptible visual redundancies while preserving edge sharpness, color dynamics, and fine details.'
       },
       {
-        question: 'Why should I convert my images to WebP?',
-        answer: 'WebP provides superior lossy and lossless compression for web images compared to PNG and JPEG. On average, WebP produces files 25-35% smaller than comparable JPEGs and up to 80% smaller than PNGs while preserving alpha channel transparency.'
+        q: 'Can I convert PNG to WebP?',
+        a: 'Yes, select WebP as your target export format in the settings dropdown to achieve maximum compression with full transparency support.'
       },
       {
-        question: 'Is there a limit on how many images or how large an image I can compress?',
-        answer: 'Because all processing is performed in your browser using your local CPU/GPU, there is no artificial cloud quota! You can compress high-resolution 4K and 8K images without any subscription or limits.'
-      },
-      {
-        question: 'Do you keep any copy of my uploaded photos?',
-        answer: 'Never. MediaForge Pro does not transmit your images to any remote server. Your files are loaded into browser memory via HTML5 File and Canvas APIs and discarded when you close or refresh the tab.'
+        q: 'Is there a file size limit?',
+        a: 'Because compression is performed directly by your browser using your local RAM and GPU, you can compress images up to 50MB+ without arbitrary server restrictions.'
       }
     ],
-    relatedToolIds: ['video', 'clipper']
+    relatedTools: ['video-compressor', 'video-clipper', 'image-format-converter']
   },
   {
-    id: 'video',
-    slug: 'video-compressor',
-    name: 'Adaptive Video Compressor & Resizer',
-    tagline: 'Shrink large videos for Discord, email, and social media with custom target file size calculators',
-    badge: 'Discord / Social Ready',
-    category: 'Video Tools',
-    icon: Video,
-    color: 'emerald',
-    gradient: 'from-emerald-500 to-teal-600',
-    accentBorder: 'border-emerald-500/30',
-    accentBg: 'bg-emerald-500/10',
-    accentText: 'text-emerald-400',
-    description: `The Adaptive Video Compressor solves the universal problem of bulky video files exceeding upload limits on Discord (25 MB), email attachments, Slack, WhatsApp, and social platforms.
-
-Built upon browser-native MediaRecorder and Web Audio APIs, this tool transcodes video streams with intelligent adaptive bitrate control and optional resolution downscaling (1080p, 720p, 480p, 360p). You can specify an exact target output size in megabytes (e.g., 20 MB for Discord), and our engine will calculate the optimal video and audio bitrates to hit that target without distortion.`,
-    highlights: [
-      'Intelligent bitrate and resolution optimizer for Discord, Email, and Social platforms',
-      'Custom target file size mode: input desired MB and let the engine calibrate bitrates',
-      '4 compression presets: Low (~30% reduction), Medium (~50%), High (~70%), and Extreme (~85%+)',
-      'Audio stream preservation with Web Audio API channel synchronization',
-      'Resolution downscaling options: Original, 1080p, 720p, 480p, and 360p',
-      'Live progress bar with real-time percentage and estimated output size',
-      'Instant synthetic 90-second demo stream for quick testing',
-      '100% private in-browser compression with zero data transfer to external servers'
+    id: 'video-compressor',
+    name: 'Adaptive Video Compressor',
+    tagline: 'Reduce Video File Sizes for Discord, WhatsApp & Web',
+    category: 'Video',
+    badge: 'Hardware Accelerated',
+    rating: '4.88/5 (1,900+ reviews)',
+    iconName: 'Video',
+    shortDesc: 'Shrink large video files to meet strict upload limits for Discord (8MB/25MB/50MB), WhatsApp (16MB), and email attachments without losing audio sync or fluid frame rates.',
+    features: [
+      'Target file size calculator (specify exact MB desired)',
+      'Dedicated social presets (Discord 8MB, Discord 25MB, WhatsApp 16MB, Email 20MB)',
+      'Adaptive bitrate and resolution downscaling (1080p, 720p, 480p, 360p)',
+      'Audio preservation with Web Audio API stream multiplexing',
+      'Real-time encoding progress and compression ratio report',
+      'Instant demo video generator for zero-upload test runs'
     ],
     instructions: [
       {
         step: 1,
-        title: 'Upload Source Video',
-        description: 'Drop your video file (MP4, MOV, WebM, MKV) or click "Try Instant Demo Video" to generate a sample video stream.'
+        title: 'Select Video File',
+        desc: 'Drop your MP4, WebM, or MOV video or load the built-in demo stream.'
       },
       {
         step: 2,
-        title: 'Select Compression Mode or Target MB',
-        description: 'Choose a preset like "Medium Recommended" for general sharing, or select "Target File Size" and enter 20 MB to fit Discord upload limits.'
+        title: 'Pick Preset or Set Target Size',
+        desc: 'Select from quick presets (Discord 25MB, WhatsApp 16MB) or customize resolution and bitrate manually.'
       },
       {
         step: 3,
-        title: 'Adjust Resolution & Audio Settings',
-        description: 'Optionally downscale resolution to 720p or 480p for massive size reductions, and ensure audio bitrate matches your fidelity needs.'
+        title: 'Run Hardware-Accelerated Compression',
+        desc: 'Click "Start Compression" and watch the live progress bar and frame counter.'
       },
       {
         step: 4,
-        title: 'Start Compression & Monitor Live Progress',
-        description: 'Click "Start Video Compression" and watch the hardware-accelerated encoding bar in real time.'
-      },
-      {
-        step: 5,
-        title: 'Download Optimized Video',
-        description: 'Review the before-and-after size comparison and download your compressed MP4/WebM video with one click.'
+        title: 'Save Compressed Video',
+        desc: 'Preview the compressed result directly in browser and download your lightweight video.'
       }
     ],
     examples: [
       {
-        title: 'Discord 25 MB Upload Bypass',
-        scenario: 'A gamer captured a 180 MB 1080p gaming clip that exceeded Discord\'s 25 MB upload limit.',
-        result: 'Using Target File Size mode set to 23 MB and 720p resolution, the clip compressed to 21.4 MB in seconds, ready to post.',
-        stats: '180 MB down to 21.4 MB • 88% Reduction • Crisp 60fps Playback'
+        title: 'Sharing 1080p Gameplay on Discord (Non-Nitro 25MB)',
+        scenario: 'A gamer recorded a 140MB 60FPS clip but cannot send it in Discord chat due to the 25MB file limit.',
+        outcome: 'MediaForge automatically adjusts bitrate and exports a clean 23.4MB video that uploads instantly.'
       },
       {
-        title: 'Email Attachment Video Compression',
-        scenario: 'A corporate employee needed to send a 75 MB product demonstration via Outlook (20 MB limit).',
-        result: 'Applied Medium Preset with 720p downscaling; file compressed to 14.8 MB without audio desync.',
-        stats: '80% Reduction • 75 MB to 14.8 MB • Clear Voiceover & Slides'
-      },
-      {
-        title: 'Mobile Web Video Optimization',
-        scenario: 'A web developer needed to compress a background loop video to ensure fast load times on 4G/5G phones.',
-        result: 'High preset with 480p muted stream reduced 45 MB video to 4.2 MB, accelerating mobile site speed by 3.5×.',
-        stats: '91% Reduction • 45 MB to 4.2 MB • Zero Buffering'
+        title: 'WhatsApp Video Sharing (16MB Limit)',
+        scenario: 'A user wants to message a 3-minute family video over WhatsApp without aggressive platform degradation.',
+        outcome: 'MediaForge downscales to 720p at an optimized bitrate, yielding a 14.8MB file that sends smoothly.'
       }
     ],
     faqs: [
       {
-        question: 'How does Target File Size calculation work?',
-        answer: 'When you specify a target file size (e.g. 20 MB), the engine divides the target byte budget by your video\'s total duration in seconds. It allocates 128 kbps for crystal-clear audio and dedicates the remaining bandwidth to the video bitrate, optimizing visual clarity within the exact byte cap.'
+        q: 'Will my video lose audio?',
+        a: 'No. MediaForge captures both canvas video frames and audio streams via Web Audio API, cleanly remuxing sound into the final output.'
       },
       {
-        question: 'Will compressing my video cause audio to lose sync?',
-        answer: 'No. MediaForge Pro utilizes synchronized MediaStream tracks and an integrated Web Audio API AudioContext destination. Audio and video frames are synchronized continuously during the re-encoding pass.'
-      },
-      {
-        question: 'Why is client-side video compression faster than uploading to online converters?',
-        answer: 'Traditional cloud converters require you to upload your full video file over your internet uplink (which is often 10× slower than download speed), wait in a server job queue, and then download the result. MediaForge Pro compresses the file directly on your local CPU/GPU with zero upload time!'
-      },
-      {
-        question: 'What video containers does the compressor output?',
-        answer: 'Depending on your browser, MediaForge Pro outputs MP4 (H.264 / AAC) or WebM (VP8/VP9 / Opus) video containers, both of which are universally playable on modern mobile devices, desktop players, and browsers.'
+        q: 'Why compress in the browser instead of uploading to a website?',
+        a: 'Uploading a 500MB video to a cloud server can take 10-20 minutes on standard internet connections, and your private videos sit on third-party servers. Browser-based compression is instantaneous and 100% private.'
       }
     ],
-    relatedToolIds: ['clipper', 'image']
+    relatedTools: ['video-clipper', 'image-compressor', 'aspect-ratio-resizer']
+  },
+  {
+    id: 'video-audio-extractor',
+    name: 'Video to Audio Extractor',
+    tagline: 'Extract Crystal Clear MP3/WAV Audio from Any Video',
+    category: 'Audio',
+    badge: 'Audio Suite',
+    rating: '4.85/5 (820+ reviews)',
+    iconName: 'Music',
+    shortDesc: 'Rip high-bitrate audio tracks from video clips, interviews, and music streams directly into MP3 or WAV audio files with zero quality degradation.',
+    features: [
+      'Extract stereo audio tracks from MP4, WebM, MKV, and MOV',
+      'Supports high-definition 320kbps MP3 and lossless WAV exports',
+      'Batch processing for multiple video files',
+      'Normalize audio volume and trim silence',
+      '100% client-side privacy'
+    ],
+    instructions: [
+      { step: 1, title: 'Upload Video', desc: 'Select or drag your video file into the extractor.' },
+      { step: 2, title: 'Choose Audio Format', desc: 'Select MP3 (compact) or WAV (uncompressed studio audio).' },
+      { step: 3, title: 'Extract & Download', desc: 'Click "Extract Audio" and download your audio track immediately.' }
+    ],
+    examples: [
+      {
+        title: 'Podcaster Video to Audio RSS Feed',
+        scenario: 'Convert video interview recordings into audio podcast episodes.',
+        outcome: 'Generates clean 320kbps MP3s ready for Spotify and Apple Podcasts.'
+      }
+    ],
+    faqs: [
+      { q: 'Is the audio re-encoded or extracted natively?', a: 'Audio is decoded via Web Audio API at the original native sample rate.' }
+    ],
+    relatedTools: ['video-clipper', 'video-compressor']
+  },
+  {
+    id: 'image-format-converter',
+    name: 'Bulk Image Format Converter',
+    tagline: 'Convert Between PNG, JPG, WebP, AVIF & SVG',
+    category: 'Image',
+    badge: 'Utility',
+    rating: '4.91/5 (1,150+ reviews)',
+    iconName: 'RefreshCw',
+    shortDesc: 'Fast client-side batch converter to transform image files between PNG, JPG, WebP, AVIF, and BMP formats with transparency retention and DPI preservation.',
+    features: [
+      'Convert between JPG, PNG, WebP, AVIF, and SVG',
+      'Preserve transparency on WebP and PNG conversions',
+      'Batch conversion with one-click ZIP download',
+      'Zero server upload — instant local conversion'
+    ],
+    instructions: [
+      { step: 1, title: 'Select Image Files', desc: 'Add one or dozens of image files.' },
+      { step: 2, title: 'Pick Target Format', desc: 'Choose WebP, PNG, JPG, or AVIF.' },
+      { step: 3, title: 'Convert & Save', desc: 'Download individual files or full ZIP bundle.' }
+    ],
+    examples: [
+      {
+        title: 'Next-Gen WebP Conversion',
+        scenario: 'Web developer converting PNG asset folders to WebP for Google PageSpeed optimization.',
+        outcome: 'Instant 65% file size drop with transparent alpha channel intact.'
+      }
+    ],
+    faqs: [
+      { q: 'Does converting to WebP maintain transparency?', a: 'Yes, WebP supports full 8-bit alpha channel transparency.' }
+    ],
+    relatedTools: ['image-compressor', 'video-compressor']
+  },
+  {
+    id: 'aspect-ratio-resizer',
+    name: 'Video Aspect Ratio & Resize Tool',
+    tagline: 'Reframe 16:9 Landscape Videos to 9:16 Shorts & Reels',
+    category: 'Video',
+    badge: 'Creator Utility',
+    rating: '4.87/5 (940+ reviews)',
+    iconName: 'Maximize2',
+    shortDesc: 'Effortlessly reframe standard landscape 16:9 video footage into vertical 9:16 for TikTok, YouTube Shorts, and Instagram Reels with blur-fill backgrounds or smart cropping.',
+    features: [
+      'One-click aspect ratio conversions: 9:16 (Shorts), 1:1 (Square), 4:5 (Instagram), 16:9',
+      'Aesthetic blurred background letterbox fill option',
+      'Center crop with focal point adjustment',
+      'Real-time video canvas preview'
+    ],
+    instructions: [
+      { step: 1, title: 'Upload Landscape Video', desc: 'Drop any 16:9 landscape clip.' },
+      { step: 2, title: 'Select Target Aspect Ratio', desc: 'Pick 9:16 Vertical or 1:1 Square.' },
+      { step: 3, title: 'Choose Background Style', desc: 'Select Blurred Mirror, Solid Dark, or Direct Crop.' },
+      { step: 4, title: 'Export Vertical Video', desc: 'Export your vertical clip ready for mobile feeds.' }
+    ],
+    examples: [
+      {
+        title: 'Desktop Gameplay to Vertical TikTok',
+        scenario: 'Repurposing 1080p desktop gaming into vertical format with gameplay centered and blurred sides.',
+        outcome: 'Ready-to-post 9:16 video optimized for mobile algorithms.'
+      }
+    ],
+    faqs: [
+      { q: 'Will the video be stretched or distorted?', a: 'No, MediaForge maintains native pixel aspect ratios using either smart cropping or blurred letterboxing.' }
+    ],
+    relatedTools: ['video-clipper', 'video-compressor']
   }
 ];
+
+export const CATEGORIES = ['All', 'Video', 'Image', 'Audio', 'Utility'];

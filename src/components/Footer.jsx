@@ -1,211 +1,161 @@
 import React from 'react';
-import { Zap, Shield, Heart, ArrowUp, GitBranch, Mail, Scissors, ImageIcon, Video, Sparkles } from 'lucide-react';
+import { Shield, Zap } from 'lucide-react';
 
-export default function Footer({ onNavigate, onLaunchTool }) {
-  const scrollToTop = () => {
+export default function Footer({ currentRoute, onNavigate }) {
+  const handleNav = (page, toolId = null) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    onNavigate(page, toolId);
+  };
+
+  const getLinkClasses = (pageId) => {
+    const isActive = currentRoute?.page === pageId;
+    if (isActive) {
+      // Matches the exact rounded border box shown in the user's uploaded picture
+      return 'text-left text-white font-semibold border border-white rounded-[7px] px-2.5 py-1 bg-white/5 shadow-sm transition-all w-fit';
+    }
+    return 'text-left text-slate-300 hover:text-white px-2.5 py-1 rounded-[7px] border border-transparent hover:border-slate-700 transition-all font-medium w-fit';
   };
 
   return (
-    <footer className="border-t border-slate-900 bg-[#060910] pt-16 pb-12 text-xs text-slate-400">
+    <footer className="border-t border-slate-900 bg-[#060910] text-slate-400 pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-900">
+        {/* Main Footer Grid including Site Map matching user screenshot */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800/80">
           
-          {/* Brand Col (2 cols wide on desktop) */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
-            <div 
-              className="flex items-center gap-3 cursor-pointer self-start"
-              onClick={() => onNavigate('home')}
-            >
+          {/* Brand Info & Mission */}
+          <div className="md:col-span-6 flex flex-col gap-4">
+            <div className="flex items-center gap-3 cursor-pointer w-fit" onClick={() => handleNav('home')}>
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-600 p-[2px] shadow-lg shadow-cyan-500/20">
                 <div className="w-full h-full bg-[#090D16] rounded-[10px] flex items-center justify-center">
                   <Zap className="w-5 h-5 text-cyan-400" />
                 </div>
               </div>
-              <div>
-                <span className="font-black text-lg tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-                  MediaForge <span className="text-cyan-400">PRO</span>
-                </span>
-                <span className="ml-2 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 rounded-md">
-                  v2.0
-                </span>
-              </div>
+              <span className="font-black text-xl tracking-tight text-white">
+                MediaForge <span className="text-cyan-400">PRO</span>
+              </span>
             </div>
-
-            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              The high-performance client-side media suite. Compress images and videos, or upload 30+ min long videos to generate shorts with automated 5s dynamic Title &amp; Part # intro bumpers.
+            
+            <p className="text-sm text-slate-400 max-w-md leading-relaxed">
+              High-performance client-side media manipulation platform. Compress images and videos, split 30+ min long-form streams into viral shorts with 5-second dynamic Title &amp; Part # intro bumpers — 100% in your browser.
             </p>
 
-            <div className="flex items-center gap-2 text-xs text-emerald-400 pt-1">
-              <Shield className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-              <span>100% Client-Side Safe • Zero Cloud Uploads</span>
+            <div className="flex flex-wrap items-center gap-3 pt-2 text-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+                <Shield className="w-3.5 h-3.5" /> 100% Client-Side Safe
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-semibold">
+                Zero Server Uploads
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-semibold">
+                Enforced ≥ 30s Clips
+              </span>
             </div>
           </div>
 
-          {/* Col 1: Tools */}
-          <div className="flex flex-col gap-3">
-            <span className="font-bold text-xs uppercase tracking-wider text-slate-200">Creative Tools</span>
-            <ul className="space-y-2">
-              <li>
-                <button
-                  onClick={() => onLaunchTool('clipper')}
-                  className="hover:text-cyan-400 transition-colors text-left flex items-center gap-1.5"
-                >
-                  <Scissors className="w-3.5 h-3.5 text-purple-400" />
-                  <span>Video Auto-Clipper</span>
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onLaunchTool('image')}
-                  className="hover:text-cyan-400 transition-colors text-left flex items-center gap-1.5"
-                >
-                  <ImageIcon className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Image Compressor</span>
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onLaunchTool('video')}
-                  className="hover:text-cyan-400 transition-colors text-left flex items-center gap-1.5"
-                >
-                  <Video className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Video Compressor</span>
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('tools')}
-                  className="text-cyan-400 hover:underline font-semibold text-left pt-1 block"
-                >
-                  Explore All Tools →
-                </button>
-              </li>
-            </ul>
-          </div>
+          {/* Site Map Section - Formatted strictly matching the user reference picture */}
+          <div className="md:col-span-6">
+            {/* Header: Site Map (underlined as in the reference screenshot) */}
+            <h3 className="text-base font-semibold text-white tracking-wide underline underline-offset-8 decoration-white/70 mb-5">
+              Site Map
+            </h3>
 
-          {/* Col 2: Resources & Blog */}
-          <div className="flex flex-col gap-3">
-            <span className="font-bold text-xs uppercase tracking-wider text-slate-200">Resources &amp; Blog</span>
-            <ul className="space-y-2">
-              <li>
+            {/* Two Column Grid exactly matching reference image */}
+            <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+              
+              {/* Column 1 */}
+              <div className="flex flex-col gap-1.5">
                 <button
-                  onClick={() => onNavigate('blog')}
-                  className="hover:text-cyan-400 transition-colors text-left"
+                  onClick={() => handleNav('home')}
+                  className={getLinkClasses('home')}
                 >
-                  Blog &amp; Tutorials
+                  Home
                 </button>
-              </li>
-              <li>
                 <button
-                  onClick={() => onNavigate('blog-turn-podcast-into-viral-shorts')}
-                  className="hover:text-cyan-400 transition-colors text-left line-clamp-1"
+                  onClick={() => handleNav('blog')}
+                  className={getLinkClasses('blog')}
                 >
-                  Podcast to Shorts with 5s Intro
+                  Blog
                 </button>
-              </li>
-              <li>
                 <button
-                  onClick={() => onNavigate('blog-lossless-vs-lossy-image-compression')}
-                  className="hover:text-cyan-400 transition-colors text-left line-clamp-1"
+                  onClick={() => handleNav('tools')}
+                  className={getLinkClasses('tools')}
                 >
-                  Lossless vs Lossy WebP Guide
+                  More Tools
                 </button>
-              </li>
-              <li>
                 <button
-                  onClick={() => onNavigate('blog-bypass-discord-email-video-limits')}
-                  className="hover:text-cyan-400 transition-colors text-left line-clamp-1"
+                  onClick={() => handleNav('help')}
+                  className={getLinkClasses('help')}
                 >
-                  Bypass Discord 25MB Limits
+                  Help MediaForge
                 </button>
-              </li>
-              <li>
                 <button
-                  onClick={() => onNavigate('blog-power-of-client-side-browser-processing')}
-                  className="hover:text-cyan-400 transition-colors text-left line-clamp-1"
+                  onClick={() => handleNav('embed')}
+                  className={getLinkClasses('embed')}
                 >
-                  In-Browser Client-Side Engine
+                  Embed MediaForge
                 </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Company & Legal */}
-          <div className="flex flex-col gap-3">
-            <span className="font-bold text-xs uppercase tracking-wider text-slate-200">Company &amp; Legal</span>
-            <ul className="space-y-2">
-              <li>
                 <button
-                  onClick={() => onNavigate('about')}
-                  className="hover:text-cyan-400 transition-colors text-left"
+                  onClick={() => handleNav('about')}
+                  className={getLinkClasses('about')}
                 >
                   About Us
                 </button>
-              </li>
-              <li>
+              </div>
+
+              {/* Column 2 */}
+              <div className="flex flex-col gap-1.5">
                 <button
-                  onClick={() => onNavigate('contact')}
-                  className="hover:text-cyan-400 transition-colors text-left"
+                  onClick={() => handleNav('contact')}
+                  className={getLinkClasses('contact')}
                 >
-                  Contact Us &amp; Support
+                  Contact Us
                 </button>
-              </li>
-              <li>
                 <button
-                  onClick={() => onNavigate('privacy')}
-                  className="hover:text-cyan-400 transition-colors text-left"
+                  onClick={() => handleNav('privacy')}
+                  className={getLinkClasses('privacy')}
                 >
                   Privacy Policy
                 </button>
-              </li>
-              <li>
                 <button
-                  onClick={() => onNavigate('terms')}
-                  className="hover:text-cyan-400 transition-colors text-left"
+                  onClick={() => handleNav('report-bug')}
+                  className={getLinkClasses('report-bug')}
                 >
-                  Terms of Service
+                  Report a Bug
                 </button>
-              </li>
-              <li>
                 <button
-                  onClick={() => onNavigate('disclaimer')}
-                  className="hover:text-cyan-400 transition-colors text-left"
+                  onClick={() => handleNav('terms')}
+                  className={getLinkClasses('terms')}
                 >
-                  Disclaimer &amp; Limits
+                  Terms
                 </button>
-              </li>
-            </ul>
+                <button
+                  onClick={() => handleNav('disclaimer')}
+                  className={getLinkClasses('disclaimer')}
+                >
+                  Disclaimer
+                </button>
+              </div>
+
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
-          <div>
-            &copy; {new Date().getFullYear()} MediaForge PRO. 100% In-Browser Media Processing. All rights reserved.
+        {/* Bottom Bar: Copyright & Attribution */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="flex items-center gap-2">
+            <span>&copy; {new Date().getFullYear()} MediaForge PRO.</span>
+            <span>All rights reserved.</span>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <span className="hidden sm:inline">Built for Creators &amp; Developers</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <a
-              href="https://github.com/mraheem971/tool.git"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-slate-200 transition-colors flex items-center gap-1.5"
-            >
-              <GitBranch className="w-3.5 h-3.5" />
-              <span>GitHub</span>
-            </a>
-            
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-1 hover:text-cyan-400 transition-colors"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
+          <div className="flex items-center gap-4">
+            <button onClick={() => handleNav('privacy')} className="hover:text-slate-300 transition-colors">Privacy</button>
+            <button onClick={() => handleNav('terms')} className="hover:text-slate-300 transition-colors">Terms</button>
+            <button onClick={() => handleNav('disclaimer')} className="hover:text-slate-300 transition-colors">Disclaimer</button>
+            <button onClick={() => handleNav('contact')} className="hover:text-slate-300 transition-colors">Support</button>
           </div>
         </div>
 
