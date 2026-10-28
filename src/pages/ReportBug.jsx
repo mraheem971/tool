@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Bug, Send, CheckCircle2, AlertTriangle, Monitor, Sparkles, Terminal } from 'lucide-react';
+import { addBugReport } from '../services/adminStore';
 
 export default function ReportBug() {
   const [submitted, setSubmitted] = useState(false);
@@ -48,6 +49,7 @@ export default function ReportBug() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.title || !formData.steps) return;
+    addBugReport({ ...formData, sysInfo });
     setSubmitted(true);
   };
 

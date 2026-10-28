@@ -19,6 +19,7 @@ import Disclaimer from './pages/Disclaimer';
 import ReportBug from './pages/ReportBug';
 import EmbedTool from './pages/EmbedTool';
 import HelpCenter from './pages/HelpCenter';
+import AdminPanel from './pages/AdminPanel';
 
 export default function App() {
   // Routing state: { page: string, param: string | null }
@@ -29,7 +30,7 @@ export default function App() {
       const parts = hash.split('/');
       if (parts[0] === 'tool') return { page: 'tool', param: parts[1] || 'video-clipper' };
       if (parts[0] === 'tool-detail') return { page: 'tool-detail', param: parts[1] || 'video-clipper' };
-      if (['home', 'tools', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'report-bug', 'embed', 'help'].includes(parts[0])) {
+      if (['home', 'tools', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'report-bug', 'embed', 'help', 'admin'].includes(parts[0])) {
         return { page: parts[0], param: null };
       }
       // If direct tool slug like #clipper, #image, #video
@@ -51,7 +52,7 @@ export default function App() {
       const parts = hash.split('/');
       if (parts[0] === 'tool') setRoute({ page: 'tool', param: parts[1] || 'video-clipper' });
       else if (parts[0] === 'tool-detail') setRoute({ page: 'tool-detail', param: parts[1] || 'video-clipper' });
-      else if (['home', 'tools', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'report-bug', 'embed', 'help'].includes(parts[0])) {
+      else if (['home', 'tools', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'report-bug', 'embed', 'help', 'admin'].includes(parts[0])) {
         setRoute({ page: parts[0], param: null });
       } else if (hash === 'clipper') setRoute({ page: 'tool', param: 'video-clipper' });
       else if (hash === 'image') setRoute({ page: 'tool', param: 'image-compressor' });
@@ -197,6 +198,11 @@ export default function App() {
         {/* 14. Help Center (matches user picture!) */}
         {route.page === 'help' && (
           <HelpCenter onNavigate={navigate} />
+        )}
+
+        {/* 15. Admin Panel (User questions & difficulties solver) */}
+        {route.page === 'admin' && (
+          <AdminPanel onNavigate={navigate} />
         )}
 
       </main>

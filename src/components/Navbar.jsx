@@ -142,6 +142,19 @@ export default function Navbar({ currentRoute, onNavigate }) {
               Contact
             </button>
 
+            {/* Admin Console */}
+            <button
+              onClick={() => handleNav('admin')}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
+                currentRoute.page === 'admin'
+                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              }`}
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Admin</span>
+            </button>
+
           </nav>
 
           {/* Privacy Badge (Desktop) */}
@@ -247,6 +260,14 @@ export default function Navbar({ currentRoute, onNavigate }) {
             className="text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-red-400 hover:bg-slate-800"
           >
             Report a Bug
+          </button>
+
+          <button
+            onClick={() => handleNav('admin')}
+            className="flex items-center gap-2 text-left px-3.5 py-2 rounded-xl text-xs font-bold text-cyan-300 hover:bg-slate-800"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Admin Control Panel</span>
           </button>
 
           <div className="pt-2 flex items-center justify-between text-[11px] text-slate-500 px-3 border-t border-slate-800">

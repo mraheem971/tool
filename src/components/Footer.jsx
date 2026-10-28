@@ -105,7 +105,16 @@ export default function Footer({ currentRoute, onNavigate }) {
         {/* Minimal Clean Copyright Bar */}
         <div className="mt-14 pt-6 border-t border-slate-900/80 flex items-center justify-between text-xs text-slate-500">
           <span>&copy; {new Date().getFullYear()} MediaForge PRO. All rights reserved.</span>
-          <span>100% Client-Side Safe</span>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => handleNav('admin')}
+              className="text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer"
+            >
+              Admin Portal
+            </button>
+            <span>•</span>
+            <span>100% Client-Side Safe</span>
+          </div>
         </div>
 
       </div>

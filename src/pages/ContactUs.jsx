@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Send, CheckCircle2, Clock, Sparkles, Bug, HelpCircle } from 'lucide-react';
+import { addTicket } from '../services/adminStore';
 
 export default function ContactUs({ onNavigate }) {
   const [submitted, setSubmitted] = useState(false);
@@ -14,6 +15,7 @@ export default function ContactUs({ onNavigate }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
+    addTicket(formData);
     setSubmitted(true);
   };
 
