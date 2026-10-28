@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Scissors, ImageIcon, Video, Sparkles, ShieldCheck, ArrowRight, 
-  Layers, BookOpen, HelpCircle, ChevronRight, CheckCircle2
+  Layers, HelpCircle, ChevronRight, CheckCircle2
 } from 'lucide-react';
 import VideoClipper from '../components/VideoClipper/VideoClipper';
 import ImageCompressor from '../components/ImageCompressor/ImageCompressor';
@@ -74,8 +74,8 @@ export default function Home({ onNavigate, onLaunchTool }) {
         {activeTool === 'video' && <VideoCompressor />}
       </div>
 
-      {/* 3. QUICK NAVIGATION CARDS (Only show if user clicks or wants to explore) */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-900">
+      {/* 3. QUICK NAVIGATION CARDS */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-900">
         <button
           onClick={() => onNavigate('tools')}
           className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-cyan-500/40 text-left flex items-center justify-between group transition-all"
@@ -106,22 +106,6 @@ export default function Home({ onNavigate, onLaunchTool }) {
             </div>
           </div>
           <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-purple-400 transition-colors" />
-        </button>
-
-        <button
-          onClick={() => onNavigate('blog')}
-          className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-indigo-500/40 text-left flex items-center justify-between group transition-all"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
-              <BookOpen className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-200 group-hover:text-indigo-300 transition-colors">Creator Blog</h4>
-              <p className="text-[11px] text-slate-500">5-second hook secrets &amp; tutorials</p>
-            </div>
-          </div>
-          <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-indigo-400 transition-colors" />
         </button>
       </div>
 

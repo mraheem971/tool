@@ -11,8 +11,6 @@ import VideoCompressor from './components/VideoCompressor/VideoCompressor';
 import Home from './pages/Home';
 import AllTools from './pages/AllTools';
 import ToolDetail from './pages/ToolDetail';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -31,8 +29,7 @@ export default function App() {
       const parts = hash.split('/');
       if (parts[0] === 'tool') return { page: 'tool', param: parts[1] || 'video-clipper' };
       if (parts[0] === 'tool-detail') return { page: 'tool-detail', param: parts[1] || 'video-clipper' };
-      if (parts[0] === 'blog-post') return { page: 'blog-post', param: parts[1] };
-      if (['home', 'tools', 'blog', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'report-bug', 'embed', 'help'].includes(parts[0])) {
+      if (['home', 'tools', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'report-bug', 'embed', 'help'].includes(parts[0])) {
         return { page: parts[0], param: null };
       }
       // If direct tool slug like #clipper, #image, #video
@@ -54,8 +51,7 @@ export default function App() {
       const parts = hash.split('/');
       if (parts[0] === 'tool') setRoute({ page: 'tool', param: parts[1] || 'video-clipper' });
       else if (parts[0] === 'tool-detail') setRoute({ page: 'tool-detail', param: parts[1] || 'video-clipper' });
-      else if (parts[0] === 'blog-post') setRoute({ page: 'blog-post', param: parts[1] });
-      else if (['home', 'tools', 'blog', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'report-bug', 'embed', 'help'].includes(parts[0])) {
+      else if (['home', 'tools', 'about', 'contact', 'privacy', 'terms', 'disclaimer', 'report-bug', 'embed', 'help'].includes(parts[0])) {
         setRoute({ page: parts[0], param: null });
       } else if (hash === 'clipper') setRoute({ page: 'tool', param: 'video-clipper' });
       else if (hash === 'image') setRoute({ page: 'tool', param: 'image-compressor' });
@@ -163,22 +159,12 @@ export default function App() {
           </div>
         )}
 
-        {/* 5. Blog Listing */}
-        {route.page === 'blog' && (
-          <Blog onNavigate={navigate} />
-        )}
-
-        {/* 6. Blog Article Reader */}
-        {route.page === 'blog-post' && (
-          <BlogPost postId={route.param} onNavigate={navigate} onLaunchTool={launchTool} />
-        )}
-
-        {/* 7. About Us */}
+        {/* 5. About Us */}
         {route.page === 'about' && (
           <AboutUs onNavigate={navigate} onLaunchTool={launchTool} />
         )}
 
-        {/* 8. Contact Us */}
+        {/* 6. Contact Us */}
         {route.page === 'contact' && (
           <ContactUs onNavigate={navigate} />
         )}

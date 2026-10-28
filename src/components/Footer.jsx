@@ -40,12 +40,6 @@ export default function Footer({ currentRoute, onNavigate }) {
                 Home
               </button>
               <button
-                onClick={() => handleNav('blog')}
-                className={getLinkClasses('blog')}
-              >
-                Blog
-              </button>
-              <button
                 onClick={() => handleNav('tools')}
                 className={getLinkClasses('tools')}
               >

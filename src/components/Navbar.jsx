@@ -118,18 +118,6 @@ export default function Navbar({ currentRoute, onNavigate }) {
             {/* Divider */}
             <span className="h-5 w-[1px] bg-slate-800 mx-1" />
 
-            {/* Blog */}
-            <button
-              onClick={() => handleNav('blog')}
-              className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                currentRoute.page === 'blog' || currentRoute.page === 'blog-post'
-                  ? 'bg-slate-800 text-purple-400 border border-slate-700'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
-              }`}
-            >
-              Blog
-            </button>
-
             {/* About */}
             <button
               onClick={() => handleNav('about')}
@@ -239,13 +227,6 @@ export default function Navbar({ currentRoute, onNavigate }) {
           <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 px-3 pt-3">
             Company &amp; Legal
           </div>
-
-          <button
-            onClick={() => handleNav('blog')}
-            className="text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:bg-slate-800"
-          >
-            Blog &amp; Tutorials
-          </button>
 
           <button
             onClick={() => handleNav('about')}
